@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button x:Name="button" Content="Baza" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button1" Content="Zamknij" HorizontalAlignment="Left" Margin="432,289,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="299" Margin="90,10,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="listBox_SelectionChanged"/>
+        <TextBox x:Name="imieBox" HorizontalAlignment="Left" Height="23" Margin="295,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" TextChanged="imieBox_TextChanged"/>
+        <TextBox x:Name="nazwiskoBox" HorizontalAlignment="Left" Height="23" Margin="295,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <Button x:Name="button2" Content="Aktualizuj" HorizontalAlignment="Left" Margin="295,66,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
+        <Button x:Name="buttonAdd" Content="Dodaj" HorizontalAlignment="Left" Margin="375,66,0,0" VerticalAlignment="Top" Width="75" Click="buttonAdd_Click"/>
+        <Button x:Name="buttonDelete" Content="Usuń" HorizontalAlignment="Left" Margin="295,289,0,0" VerticalAlignment="Top" Width="75" Click="buttonDelete_Click"/>
+
     </Grid>
 </Window>
