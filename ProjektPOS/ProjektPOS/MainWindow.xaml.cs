@@ -74,13 +74,11 @@ namespace ProjektPOS
                 //listBox.Items.Add(string.Format( "{0} - {1} - {2}", czytnik["Id"].ToString(), czytnik["IMIE"].ToString(), czytnik["NAZWISKO"].ToString()));
                 if (czytnik.HasRows)
                 {
-                    //int licznik = 1;
                     while (czytnik.Read())
                     {
                         listaPostaci.Add(new Postac(int.Parse(czytnik["Id"].ToString()), czytnik["IMIE"].ToString(), czytnik["NAZWISKO"].ToString()));
-                       // listBox.Items.Add(string.Format("{0} - {1} - {2}", licznik, czytnik["IMIE"].ToString(), czytnik["NAZWISKO"].ToString()));
-                        //licznik++;
-                         listBox.Items.Add(string.Format("{0} - {1} - {2}", int.Parse(czytnik["Id"].ToString()), czytnik["IMIE"].ToString(), czytnik["NAZWISKO"].ToString()));
+                        //listBox.Items.Add(string.Format("{0} - {1} - {2}", licznik++, czytnik["IMIE"].ToString(), czytnik["NAZWISKO"]));
+                        listBox.Items.Add(string.Format("{0} - {1} - {2}", int.Parse(czytnik["Id"].ToString()), czytnik["IMIE"].ToString(), czytnik["NAZWISKO"].ToString()));
                     }
                     czytnik.Close();
                 }
