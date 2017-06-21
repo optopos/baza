@@ -48,8 +48,8 @@ namespace ProjektPOS
         #region Konstruktory
         public MainWindow()
         {
-            InicjalizacjaDanych();
             InitializeComponent();
+            InicjalizacjaDanych();
         }
 
         #endregion Konstruktory
@@ -60,43 +60,11 @@ namespace ProjektPOS
 
         void InicjalizacjaDanych()
         {
+            listaPostaci = Utils.WczytajDane(_polaczenie);
             
-            try
+            foreach (Postac p in listaPostaci)
             {
-                if (_polaczenie.State == ConnectionState.Closed)
-                { _polaczenie.Open(); }
-                zapytanieSQL = "select * from Tabela";
-                komenda = new SQLiteCommand(zapytanieSQL, _polaczenie);
-                czytnik = komenda.ExecuteReader();
-                //int licznik = 1;
-
-
-                //listBox.Items.Add(string.Format( "{0} - {1} - {2}", czytnik["Id"].ToString(), czytnik["IMIE"].ToString(), czytnik["NAZWISKO"].ToString()));
-                if (czytnik.HasRows)
-                {
-                    while (czytnik.Read())
-                    {
-                        listaPostaci.Add(new Postac(int.Parse(czytnik["Id"].ToString()), czytnik["IMIE"].ToString(), czytnik["NAZWISKO"].ToString()));
-                        //listBox.Items.Add(string.Format("{0} - {1} - {2}", licznik++, czytnik["IMIE"].ToString(), czytnik["NAZWISKO"]));
-                        listBox.Items.Add(string.Format("{0} - {1} - {2}", int.Parse(czytnik["Id"].ToString()), czytnik["IMIE"].ToString(), czytnik["NAZWISKO"].ToString()));
-                    }
-                    czytnik.Close();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                //string byk = string.Format("Błąd podczas pobierania danych: \n {0}", ex.Message);
-                //MessageBox.Show(byk, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                _polaczenie.Close();
-                if (czytnik != null)
-                {
-                    czytnik.Dispose();
-                    czytnik = null;
-                }
+                listBox.Items.Add(string.Format("{0} - {1} - {2}", int.Parse(p.Id.ToString()), p.IMIE, p.NAZWISKO));
             }
         }
 
@@ -198,7 +166,7 @@ namespace ProjektPOS
                     { _polaczenie.Open(); }
                     ////////////////////////////////////////////////////////////////////
                     string _zapytanieSQL = string.Format("");
-                _zapytanieSQL = string.Format("INSERT INTO Tabela (IMIE, NAZWISKO, Id)"+"VALUES('{0}', '{1}', {2})", imieBox.Text, nazwiskoBox.Text, listaPostaci.MaxId()+1);
+                    _zapytanieSQL = string.Format("INSERT INTO Tabela (IMIE, NAZWISKO, Id)"+"VALUES('{0}', '{1}', {2})", imieBox.Text, nazwiskoBox.Text, listaPostaci.MaxId()+1);
                     komenda = new SQLiteCommand(_zapytanieSQL, _polaczenie);
                     komenda.ExecuteNonQuery();
                     MessageBox.Show("Postać Dodana.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
