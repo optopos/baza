@@ -40,19 +40,29 @@ namespace ProjektPOS.Tests
         public void WczytajListeTest()
         {
             SQLiteCommand komenda;
-            SQLiteDataReader czytnik;
-            string zapytanieSQL = "";
+            string _zapytanieSQL = string.Format("");
+            //SQLiteDataReader czytnik;
+            //string zapytanieSQL = "";
+            string imie = "Kacper";
+            string nazwisko = "Czarnowski";
+            int expected = 0;
             SQLiteConnection _polaczenie = new SQLiteConnection("Data Source=baza.db");
             _polaczenie.Open();
 
             new SQLiteCommand("drop table Tabela", _polaczenie).ExecuteNonQuery();
             new SQLiteCommand("create table Tabela(id INTEGER, imie TEXT, nazwisko TEXT)", _polaczenie).ExecuteNonQuery();
-            new SQLiteCommand("insert into Tabela (Id, IMIE, NAZWISKO) values (1, 'Jan', 'Kowalski')", _polaczenie).ExecuteNonQuery();
-            new SQLiteCommand("insert into Tabela (Id, IMIE, NAZWISKO) values (2, 'Jan', 'Nowak')", _polaczenie).ExecuteNonQuery();
+            //new SQLiteCommand("insert into Tabela (Id, IMIE, NAZWISKO) values (1, 'Jan', 'Kowalski')", _polaczenie).ExecuteNonQuery();
+            for (int i = 1; i <= 100; i++)
+            {
+                _zapytanieSQL = string.Format("INSERT INTO Tabela (id, IMIE, NAZWISKO) " + "VALUES('{0}', '{1}', '{2}')",i, imie, nazwisko);
+                komenda = new SQLiteCommand(_zapytanieSQL, _polaczenie);
+                komenda.ExecuteNonQuery();
+                expected = i;
+            }
 
 
             List<Postac> listaPostaci = Utils.WczytajDane(_polaczenie);
-            Assert.AreEqual(2,listaPostaci.Count);
+            Assert.AreEqual(expected,listaPostaci.Count);
         }
     }
 }
