@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace ProjektPOS
 {
+    /// <summary>
+    /// List extensions.
+    /// </summary>
     public static class ListExtensions
     {
-        public static int MaxId(this List<Postac> postacie)
+/// <summary>
+/// This method is signed to list that contains Postac class objects.
+/// </summary>
+    public static int MaxId(this List<Postac> postacie)
         {
             int res = 0;
             foreach(var p in postacie)

@@ -23,29 +23,28 @@ namespace ProjektPOS
     /// </summary>
     public partial class MainWindow : Window
     {
-        //Tabela(Id integer primary key autoincrement, IMIE integer, NAZWISKO integer" + "IMIE varchar(100), NAZWISKO varchar(100)
-        
-        //SQLiteDataReader czytnik; 
-
-        //private static string _zapytanieSQL = "create table if not exists CREATE TABLE [Tabela] ([Id] INTEGER NOT NULL, [IMIE] TEXT NOT NULL, [NAZWISKO] TEXT NOT NULL, CONSTRAINT[PK_Tabela] PRIMARY KEY([Id]))";
-        //SQLiteCommand Komenda = new SQLiteCommand(_zapytanieSQL, _polaczenie);
         #region Zmienne
+        /// <summary>
+        /// This field connects to data base file or creats new one.
+        /// </summary>
         SQLiteConnection _polaczenie = new SQLiteConnection("Data Source=baza.db");
-        SQLiteCommand komenda;
-        SQLiteDataReader czytnik;
-        string zapytanieSQL = "";
+
+      
+        /// <summary>
+        /// This list contains Postac class objects.
+        /// </summary>
         List<Postac> listaPostaci = new List<Postac>();
+        /// <summary>
+        /// This field contains selected item from the listBox
+        /// </summary>
         Postac wybranaPostac = null;
 
-
-        //string zapytanieSQL = string.Format("");
-        //zapytanieSQL = string.Format( "UPDATE Tabela SET IMIE = '{0}', NAZWISKO= '{2}' WHERE Id = {1}", imieBox.Text, wybranaPostac.Id, nazwiskoBox.Text);
-        //komenda = new SQLiteCommand(_zapytanieSQL, _polaczenie);
-        //komenda.ExecuteNonQuery();
-        //            MessageBox.Show("Postać zaktualizowana.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
         #endregion Zmienne
 
         #region Konstruktory
+        /// <summary>
+        /// This is the Main Window.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -57,7 +56,10 @@ namespace ProjektPOS
         #region Metody
 
         #region Ogolne
-
+        /// <summary>
+        /// This method adds Postac class objects to the listBox.
+        /// It uses WczytajDane method.
+        /// </summary>
         void InicjalizacjaDanych()
         {
             listaPostaci = Utils.WczytajDane(_polaczenie);
@@ -67,11 +69,7 @@ namespace ProjektPOS
                 listBox.Items.Add(string.Format("{0} - {1} - {2}", int.Parse(p.Id.ToString()), p.IMIE, p.NAZWISKO));
             }
         }
-
-        void WyczyscListe()
-        {
-            listBox.SelectedIndex = -1;
-        }
+   
 
         private void imieBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -80,6 +78,12 @@ namespace ProjektPOS
 
 
         #endregion Ogolne
+        /// <summary>
+        /// Button "Baza"
+        /// This method refreshes listBox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
             listaPostaci.Clear();
@@ -87,7 +91,12 @@ namespace ProjektPOS
             InicjalizacjaDanych();
 
         }
-
+        /// <summary>
+        /// Button "Aktualizuj"
+        /// This method updates selected object from the listBox in the data base.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -101,7 +110,7 @@ namespace ProjektPOS
                     ////////////////////////////////////////////////////////////////////
                     string _zapytanieSQL = string.Format("");
                     _zapytanieSQL = string.Format( "UPDATE Tabela SET IMIE = '{0}', NAZWISKO= '{2}' WHERE Id = {1}", imieBox.Text, wybranaPostac.Id, nazwiskoBox.Text);
-                    komenda = new SQLiteCommand(_zapytanieSQL, _polaczenie);
+                    SQLiteCommand komenda = new SQLiteCommand(_zapytanieSQL, _polaczenie);
                     komenda.ExecuteNonQuery();
                     MessageBox.Show("Postać zaktualizowana.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -122,7 +131,11 @@ namespace ProjektPOS
             }
         }
   
-
+        /// <summary>
+        /// This method 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -156,6 +169,14 @@ namespace ProjektPOS
                 MessageBox.Show(byk, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        /// <summary>
+        /// Button "Dodaj"
+        /// This method adds Postac calss object to the data base.
+        /// It uses textBoxs: imieBox, nazwiskoBox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -164,10 +185,9 @@ namespace ProjektPOS
                 { 
                     if (_polaczenie.State == ConnectionState.Closed)
                     { _polaczenie.Open(); }
-                    ////////////////////////////////////////////////////////////////////
                     string _zapytanieSQL = string.Format("");
                     _zapytanieSQL = string.Format("INSERT INTO Tabela (IMIE, NAZWISKO, Id)"+"VALUES('{0}', '{1}', {2})", imieBox.Text, nazwiskoBox.Text, listaPostaci.MaxId()+1);
-                    komenda = new SQLiteCommand(_zapytanieSQL, _polaczenie);
+                    SQLiteCommand komenda = new SQLiteCommand(_zapytanieSQL, _polaczenie);
                     komenda.ExecuteNonQuery();
                     MessageBox.Show("Postać Dodana.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -187,6 +207,13 @@ namespace ProjektPOS
                 MessageBox.Show(byk, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        /// <summary>
+        /// Button "Usuń"
+        /// This method deletes Postac class object form the data base.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -202,7 +229,7 @@ namespace ProjektPOS
                     ////////////////////////////////////////////////////////////////////
                     string _zapytanieSQL = string.Format("");
                     _zapytanieSQL = string.Format("DELETE FROM Tabela WHERE Id = {0}", wybranaPostac.Id);
-                    komenda = new SQLiteCommand(_zapytanieSQL, _polaczenie);
+                    SQLiteCommand komenda = new SQLiteCommand(_zapytanieSQL, _polaczenie);
                     komenda.ExecuteNonQuery();
                     MessageBox.Show("Postać usunięta.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -223,6 +250,12 @@ namespace ProjektPOS
             }
         }
 
+        /// <summary>
+        /// Button "Zamknij"
+        /// This method closes the MainWindow.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

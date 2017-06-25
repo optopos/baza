@@ -1,0 +1,218 @@
+\hypertarget{class_projekt_p_o_s_1_1_main_window}{}\section{Projekt\+P\+O\+S.\+Main\+Window Class Reference}
+\label{class_projekt_p_o_s_1_1_main_window}\index{Projekt\+P\+O\+S.\+Main\+Window@{Projekt\+P\+O\+S.\+Main\+Window}}
+
+
+Interaction logic for Main\+Window.\+xaml  
+
+
+Inheritance diagram for Projekt\+P\+O\+S.\+Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_projekt_p_o_s_1_1_main_window}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_projekt_p_o_s_1_1_main_window_accd74500e15ba53e22f8c803e78e3e65}{Main\+Window} ()
+\begin{DoxyCompactList}\small\item\em This is the Main Window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_projekt_p_o_s_1_1_main_window_a1c820b42a3dc4d0baa35192573a3248d}{Inicjalizacja\+Danych} ()
+\begin{DoxyCompactList}\small\item\em This method adds \hyperlink{class_projekt_p_o_s_1_1_postac}{Postac} class objects to the list\+Box. It uses Wczytaj\+Dane method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_af6467cccd96f7169e8a84094d0017c1b}\label{class_projekt_p_o_s_1_1_main_window_af6467cccd96f7169e8a84094d0017c1b}} 
+void {\bfseries imie\+Box\+\_\+\+Text\+Changed} (object sender, Text\+Changed\+Event\+Args e)
+\item 
+void \hyperlink{class_projekt_p_o_s_1_1_main_window_a98a2b1c31cf135c85a3c8bc12a9879ad}{button\+\_\+\+Click} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Button \char`\"{}\+Baza\char`\"{} This method refreshes list\+Box. \end{DoxyCompactList}\item 
+void \hyperlink{class_projekt_p_o_s_1_1_main_window_a955fd8db95c7491807d1262fdb15a115}{button2\+\_\+\+Click} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Button \char`\"{}\+Aktualizuj\char`\"{} This method updates selected object from the list\+Box in the data base. \end{DoxyCompactList}\item 
+void \hyperlink{class_projekt_p_o_s_1_1_main_window_a5b2c07df737c6583f39ba146500523eb}{list\+Box\+\_\+\+Selection\+Changed} (object sender, Selection\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em This method \end{DoxyCompactList}\item 
+void \hyperlink{class_projekt_p_o_s_1_1_main_window_a0f8ea018177f274247e6d4601fb9e76e}{button\+Add\+\_\+\+Click} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Button \char`\"{}\+Dodaj\char`\"{} This method adds \hyperlink{class_projekt_p_o_s_1_1_postac}{Postac} calss object to the data base. It uses text\+Boxs\+: imie\+Box, nazwisko\+Box. \end{DoxyCompactList}\item 
+void \hyperlink{class_projekt_p_o_s_1_1_main_window_ac955d8aa2cc3dceeafa88d532c69a5e3}{button\+Delete\+\_\+\+Click} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Button \char`\"{}\+Usuń\char`\"{} This method deletes \hyperlink{class_projekt_p_o_s_1_1_postac}{Postac} class object form the data base. \end{DoxyCompactList}\item 
+void \hyperlink{class_projekt_p_o_s_1_1_main_window_a86639632a4f0c369581fba5be73a211f}{button1\+\_\+\+Click} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Button \char`\"{}\+Zamknij\char`\"{} This method closes the \hyperlink{class_projekt_p_o_s_1_1_main_window}{Main\+Window}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+S\+Q\+Lite\+Connection \hyperlink{class_projekt_p_o_s_1_1_main_window_a9b68fbebcc348b5a1d0a0370d1180ba6}{\+\_\+polaczenie} = new S\+Q\+Lite\+Connection(\char`\"{}Data Source=baza.\+db\char`\"{})
+\begin{DoxyCompactList}\small\item\em This field connects to data base file or creats new one. \end{DoxyCompactList}\item 
+List$<$ \hyperlink{class_projekt_p_o_s_1_1_postac}{Postac} $>$ \hyperlink{class_projekt_p_o_s_1_1_main_window_abe462d9c2e721c3476d858fb870fa4b4}{lista\+Postaci} = new List$<$\hyperlink{class_projekt_p_o_s_1_1_postac}{Postac}$>$()
+\begin{DoxyCompactList}\small\item\em This list contains \hyperlink{class_projekt_p_o_s_1_1_postac}{Postac} class objects. \end{DoxyCompactList}\item 
+\hyperlink{class_projekt_p_o_s_1_1_postac}{Postac} \hyperlink{class_projekt_p_o_s_1_1_main_window_ad0cd50357b42ca42fed4b16ba859c645}{wybrana\+Postac} = null
+\begin{DoxyCompactList}\small\item\em This field contains selected item from the list\+Box \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interaction logic for Main\+Window.\+xaml 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_accd74500e15ba53e22f8c803e78e3e65}\label{class_projekt_p_o_s_1_1_main_window_accd74500e15ba53e22f8c803e78e3e65}} 
+\index{Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}!Main\+Window@{Main\+Window}}
+\index{Main\+Window@{Main\+Window}!Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{Main\+Window()}{MainWindow()}}
+{\footnotesize\ttfamily Projekt\+P\+O\+S.\+Main\+Window.\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This is the Main Window. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_a86639632a4f0c369581fba5be73a211f}\label{class_projekt_p_o_s_1_1_main_window_a86639632a4f0c369581fba5be73a211f}} 
+\index{Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}!button1\+\_\+\+Click@{button1\+\_\+\+Click}}
+\index{button1\+\_\+\+Click@{button1\+\_\+\+Click}!Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{button1\+\_\+\+Click()}{button1\_Click()}}
+{\footnotesize\ttfamily void Projekt\+P\+O\+S.\+Main\+Window.\+button1\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Button \char`\"{}\+Zamknij\char`\"{} This method closes the \hyperlink{class_projekt_p_o_s_1_1_main_window}{Main\+Window}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_a955fd8db95c7491807d1262fdb15a115}\label{class_projekt_p_o_s_1_1_main_window_a955fd8db95c7491807d1262fdb15a115}} 
+\index{Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}!button2\+\_\+\+Click@{button2\+\_\+\+Click}}
+\index{button2\+\_\+\+Click@{button2\+\_\+\+Click}!Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{button2\+\_\+\+Click()}{button2\_Click()}}
+{\footnotesize\ttfamily void Projekt\+P\+O\+S.\+Main\+Window.\+button2\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Button \char`\"{}\+Aktualizuj\char`\"{} This method updates selected object from the list\+Box in the data base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_a98a2b1c31cf135c85a3c8bc12a9879ad}\label{class_projekt_p_o_s_1_1_main_window_a98a2b1c31cf135c85a3c8bc12a9879ad}} 
+\index{Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}!button\+\_\+\+Click@{button\+\_\+\+Click}}
+\index{button\+\_\+\+Click@{button\+\_\+\+Click}!Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{button\+\_\+\+Click()}{button\_Click()}}
+{\footnotesize\ttfamily void Projekt\+P\+O\+S.\+Main\+Window.\+button\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Button \char`\"{}\+Baza\char`\"{} This method refreshes list\+Box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_a0f8ea018177f274247e6d4601fb9e76e}\label{class_projekt_p_o_s_1_1_main_window_a0f8ea018177f274247e6d4601fb9e76e}} 
+\index{Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}!button\+Add\+\_\+\+Click@{button\+Add\+\_\+\+Click}}
+\index{button\+Add\+\_\+\+Click@{button\+Add\+\_\+\+Click}!Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{button\+Add\+\_\+\+Click()}{buttonAdd\_Click()}}
+{\footnotesize\ttfamily void Projekt\+P\+O\+S.\+Main\+Window.\+button\+Add\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Button \char`\"{}\+Dodaj\char`\"{} This method adds \hyperlink{class_projekt_p_o_s_1_1_postac}{Postac} calss object to the data base. It uses text\+Boxs\+: imie\+Box, nazwisko\+Box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_ac955d8aa2cc3dceeafa88d532c69a5e3}\label{class_projekt_p_o_s_1_1_main_window_ac955d8aa2cc3dceeafa88d532c69a5e3}} 
+\index{Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}!button\+Delete\+\_\+\+Click@{button\+Delete\+\_\+\+Click}}
+\index{button\+Delete\+\_\+\+Click@{button\+Delete\+\_\+\+Click}!Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{button\+Delete\+\_\+\+Click()}{buttonDelete\_Click()}}
+{\footnotesize\ttfamily void Projekt\+P\+O\+S.\+Main\+Window.\+button\+Delete\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Button \char`\"{}\+Usuń\char`\"{} This method deletes \hyperlink{class_projekt_p_o_s_1_1_postac}{Postac} class object form the data base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_a1c820b42a3dc4d0baa35192573a3248d}\label{class_projekt_p_o_s_1_1_main_window_a1c820b42a3dc4d0baa35192573a3248d}} 
+\index{Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}!Inicjalizacja\+Danych@{Inicjalizacja\+Danych}}
+\index{Inicjalizacja\+Danych@{Inicjalizacja\+Danych}!Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{Inicjalizacja\+Danych()}{InicjalizacjaDanych()}}
+{\footnotesize\ttfamily void Projekt\+P\+O\+S.\+Main\+Window.\+Inicjalizacja\+Danych (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method adds \hyperlink{class_projekt_p_o_s_1_1_postac}{Postac} class objects to the list\+Box. It uses Wczytaj\+Dane method. 
+
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_a5b2c07df737c6583f39ba146500523eb}\label{class_projekt_p_o_s_1_1_main_window_a5b2c07df737c6583f39ba146500523eb}} 
+\index{Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}!list\+Box\+\_\+\+Selection\+Changed@{list\+Box\+\_\+\+Selection\+Changed}}
+\index{list\+Box\+\_\+\+Selection\+Changed@{list\+Box\+\_\+\+Selection\+Changed}!Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{list\+Box\+\_\+\+Selection\+Changed()}{listBox\_SelectionChanged()}}
+{\footnotesize\ttfamily void Projekt\+P\+O\+S.\+Main\+Window.\+list\+Box\+\_\+\+Selection\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Selection\+Changed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_a9b68fbebcc348b5a1d0a0370d1180ba6}\label{class_projekt_p_o_s_1_1_main_window_a9b68fbebcc348b5a1d0a0370d1180ba6}} 
+\index{Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}!\+\_\+polaczenie@{\+\_\+polaczenie}}
+\index{\+\_\+polaczenie@{\+\_\+polaczenie}!Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{\+\_\+polaczenie}{\_polaczenie}}
+{\footnotesize\ttfamily S\+Q\+Lite\+Connection Projekt\+P\+O\+S.\+Main\+Window.\+\_\+polaczenie = new S\+Q\+Lite\+Connection(\char`\"{}Data Source=baza.\+db\char`\"{})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This field connects to data base file or creats new one. 
+
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_abe462d9c2e721c3476d858fb870fa4b4}\label{class_projekt_p_o_s_1_1_main_window_abe462d9c2e721c3476d858fb870fa4b4}} 
+\index{Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}!lista\+Postaci@{lista\+Postaci}}
+\index{lista\+Postaci@{lista\+Postaci}!Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{lista\+Postaci}{listaPostaci}}
+{\footnotesize\ttfamily List$<$\hyperlink{class_projekt_p_o_s_1_1_postac}{Postac}$>$ Projekt\+P\+O\+S.\+Main\+Window.\+lista\+Postaci = new List$<$\hyperlink{class_projekt_p_o_s_1_1_postac}{Postac}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This list contains \hyperlink{class_projekt_p_o_s_1_1_postac}{Postac} class objects. 
+
+\mbox{\Hypertarget{class_projekt_p_o_s_1_1_main_window_ad0cd50357b42ca42fed4b16ba859c645}\label{class_projekt_p_o_s_1_1_main_window_ad0cd50357b42ca42fed4b16ba859c645}} 
+\index{Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}!wybrana\+Postac@{wybrana\+Postac}}
+\index{wybrana\+Postac@{wybrana\+Postac}!Projekt\+P\+O\+S\+::\+Main\+Window@{Projekt\+P\+O\+S\+::\+Main\+Window}}
+\subsubsection{\texorpdfstring{wybrana\+Postac}{wybranaPostac}}
+{\footnotesize\ttfamily \hyperlink{class_projekt_p_o_s_1_1_postac}{Postac} Projekt\+P\+O\+S.\+Main\+Window.\+wybrana\+Postac = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This field contains selected item from the list\+Box 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Przebudzenie Mocy/\+S\+Q\+Lite/\+O\+P\+T\+O\+P\+O\+S R\+E\+Pwc/trunk/\+Projekt\+P\+O\+S/\+Projekt\+P\+O\+S/Main\+Window.\+xaml.\+cs\end{DoxyCompactItemize}
