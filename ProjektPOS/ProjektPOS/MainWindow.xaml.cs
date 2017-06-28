@@ -84,7 +84,7 @@ namespace ProjektPOS
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e) //przycisk Baza
         {
             listaPostaci.Clear();
             listBox.Items.Clear();
